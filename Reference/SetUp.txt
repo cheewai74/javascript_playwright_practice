@@ -1,0 +1,10 @@
+Javascript:
+npmjs.com  => MVN for javascript
+
+1. Terminal > New Terminal
+2. npm init -y
+3. npm i -D playwright
+
+Execute the scripe 
+1. Terminal 
+2. node first.js 

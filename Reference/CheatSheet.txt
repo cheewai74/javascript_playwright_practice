@@ -1,0 +1,179 @@
+Launch browser => supports browsers chrome, firefox, webkit, edge
+====================================
+opens browser in headless mode by default.
+const { chromium } = require(‘playwright’); //similarly for {firefox}, {webkit}
+(async () => {
+const chrome= await chrome.launch({headless: false});
+const context= await chrome.newContext();//context is a session within a browser.
+const page= await context.newPage();
+await page.goto(‘http://google.com');
+})();
+
+
+Maximize page size:
+==========
+//you can set the width and height of the page as per your requirment
+await page.setViewportSize({
+width: 1500,
+height: 1200
+});
+
+Identify Elements:
+==========
+Supports css,xpath
+
+Single Element:
+— — — — — — —
+await page.click(‘css=input’); (or) const inputElement = await page.$(‘#id1’);//$ =>internally calls method document.querySelector
+await page.click(‘xpath=//input[@type=”textbox”]’);
+
+Multiple Elements:
+— — — — — — — — -
+const availableHours = await page.$$(‘#available-hours span.available-hour’);//$$ =>internally calls method document.querySelectorAll
+
+Explicit Wait For Elements:
+==============
+await page.waitForSelector(‘#search’, { waitFor: ‘visible’, timeout:’5'});//attached/detached/visible/hidden
+
+More Wait methods:
+==========
+await page.waitFor(1000); //static wait
+await page.waitForNavigation(); //wait for page to complete navigation
+await await page.waitForXPath( ‘//button[contains(., “Login”)]’ );//waits for element with xpath
+
+Timeouts:
+=====
+page.setDefaultNavigationTimeout(1000);
+page.setDefaultTimeout(1000);//changes the timeout for all methods using timeout option
+
+Back & Forth:
+=======
+await page.goBack();
+await page.goForward();
+
+Enter text in a textbox:
+===========
+await page.fill(‘#q’,’playwright’);
+(or)
+await page.type(‘#area’, ‘Hello World!’); // await firstNameHandler.type(‘Tom’, { delay: 100 });//adds delay when typing text
+
+Press key:
+=====
+await page.press(‘#last-name’,’Shift+c’);
+Other key supported: F1 — F12, Digit0- Digit9, KeyA- KeyZ, Backquote, Minus, Equal, Backslash, Backspace, Tab, Delete, Escape, ArrowDown, End, Enter, Home, Insert, PageDown, PageUp, ArrayRight, ArrowUp, etc.
+Following modification shortcuts are also suported: Shift, Control, Alt, Meta, ShiftLeft.
+
+Handling checkboxes:
+===========
+await page.check(‘#id2’);//checks the checkbox
+await page.uncheck(‘#id3’);//unchecks the checkbox
+
+Choose radiobutton:
+===========
+await page.check(‘#radio1’);
+
+Choose value(s) from a listbox:
+================
+await page.selectOption(‘select#colors’, ‘blue’);//matches value blue
+await page.selectOption(‘select#colors’, [‘red’, ‘green’, ‘blue’]);//multi selects the values in the list
+click Element:
+=======
+await page.click(‘#id1’);
+
+click variations:
+========
+// Double click element
+await page.dblclick(‘#item’);
+// Right click element
+await page.click(‘#item’, { button: ‘right’ });
+// Shift click element
+await page.click(‘#item’, { modifiers: [‘Shift’] });
+// Hover over element without clicking
+await page.hover(‘#item’);
+// Click the top left corner of the element
+await page.click(‘#item’, { position: { x: 0, y: 0} });
+
+get Attribute:
+=======
+await page.goto(‘https://google.com/');
+var link = await page.$eval(“.gb_g[data-pid=’23']”,
+element=> element.getAttribute(“data-pid”))
+await console.log(link);
+
+textContent:
+======
+var link = await page.$eval(“.gb_g[data-pid=’23']”,
+element=> element.textContent)
+await console.log(link);
+
+get Property:
+=======
+const messageText = await page.$eval(‘#form-message’, el => el.innerText);
+console.log(messageText);
+Similarly you can try other attributes like href,innerHTML,title etc..
+
+get Page url:
+======
+const url = await page.url();
+console.log(“page url is:” +url);
+
+get Page title:
+=======
+const title = await page.title();
+console.log(“page title is:” +title);
+
+Other events:
+=======
+await page.press(‘#submit’, ‘Enter’);
+await page.press(‘#name’, ‘Control+A’);
+//similarly other keys can be explored like Shift or Combination of keys like Control+Shift
+
+File Upload:
+======
+await page.setInputFiles(‘input#upload’, ‘myfile.pdf’);
+
+Frames:
+====
+Switch to frame based on name and url attributes.
+const frame=page.frame(‘iframe1’); (or) const frame = await page.frames().find(frame => frame.name() === ‘iframe1’);
+const title= await frame.title();
+await console.log(“title is:”+title);
+await (await frame.$(“[name=’s’]”)).type(“dev”);
+
+Capture Screenshot:
+==========
+await page.screenshot({ path: `snap1.png` });
+
+Dialog/ Alerts
+=======
+page.on(‘dialog’, async dialog => {
+console.log(dialog.message());//logs the content of the alert box
+await dialog.dismiss(); // clicks on CANCEL button in the alert box.
+});
+//await dialog.accept(); // clicks on OK button in the alert box.
+
+Open multiple tabs in browser:
+=================
+(async () => {
+const browser = await chromium.launch({ headless: false });
+const context1 = await browser.newContext();
+const page = await context1.newPage();
+page.setViewportSize({ width: 1500, height: 1200 });
+await page.goto(‘https://example1.com/transaction1');
+const page2= await context1.newPage();
+page2.setViewportSize({ width: 2500, height: 1500 });
+await page2.goto(‘https://example1.com/transaction2');
+await browser.close();
+})();
+
+Evaluate methods:
+=================
+const inputElement = await page.$eval(‘#input’, el => el.value);
+//$eval finds an element matching with the selector within the page and passes it as a first argument to pageFunction.
+//If no elements match the selector, the method throws an error.
+const spanCollection = await page.$$eval(‘span’, (divs, min) => span.length);
+// $$eval finds all elements matching with the selector within the page and passes an array of matched elements as a first argument to pageFunction
+
+Close browser
+==============
+await browser.close();
