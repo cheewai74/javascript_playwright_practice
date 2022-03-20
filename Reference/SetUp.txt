@@ -8,3 +8,10 @@ npmjs.com  => MVN for javascript
 Execute the scripe 
 1. Terminal 
 2. node first.js 
+
+https://the-internet.herokuapp.com/
+https://www.apronus.com/music/flashpiano.htm
+https://www.apronus.com/music/lessons/unit01.htm
+
+chropath
+https://chrome.google.com/webstore/detail/chropath/ljngjbnaijcbncmcnjfhigebomdlkcjo
