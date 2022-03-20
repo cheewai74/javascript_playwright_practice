@@ -1,1 +1,6 @@
 https://playwright.dev/docs/api/class-browser
+
+https://juarezjunior.medium.com/quick-and-easy-javascript-testing-with-playwright-8507e1407d60
+
+
+https://nitya.github.io/learn-playwright/001-getting-started-setup/
