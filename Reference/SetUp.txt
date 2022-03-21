@@ -12,6 +12,8 @@ Execute the scripe
 https://the-internet.herokuapp.com/
 https://www.apronus.com/music/flashpiano.htm
 https://www.apronus.com/music/lessons/unit01.htm
+https://demoqa.com/frames
+https://demoqa.com/alerts
 
 chropath
 https://chrome.google.com/webstore/detail/chropath/ljngjbnaijcbncmcnjfhigebomdlkcjo
