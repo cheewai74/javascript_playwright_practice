@@ -4,6 +4,8 @@ npmjs.com  => MVN for javascript
 1. Terminal > New Terminal
 2. npm init -y
 3. npm i -D playwright
+4. npm install -D jest
+5. npm test
 
 Execute the scripe 
 1. Terminal 
@@ -14,8 +16,10 @@ https://www.apronus.com/music/flashpiano.htm
 https://www.apronus.com/music/lessons/unit01.htm
 https://demoqa.com/frames
 https://demoqa.com/alerts
+https://demoqa.com/books
 https://demoqa.com/automation-practice-form
 https://paint.js.org/
+https://jestjs.io
 
 chropath
 https://chrome.google.com/webstore/detail/chropath/ljngjbnaijcbncmcnjfhigebomdlkcjo
