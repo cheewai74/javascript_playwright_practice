@@ -20,12 +20,12 @@ const {chromium} = require('playwright');
         // $$ : Retrieve more than 1 element
         const availableOptions = await dropdown.$$('option');
         for (let i = 0; i < availableOptions.length; i++){
-            console.log(await availableOptions[i].innerText())
+            console.log(await availableOptions[i].innerText());
         }
     }
     catch (err) {
-        console.error("Something went wrong")
-        console.error(err)
+        console.error("Something went wrong");
+        console.error(err);
     }
     await browser.close();
 })();

@@ -14,12 +14,12 @@ const {chromium} = require('playwright');
             await page.keyboard.press('ArrowLeft')
         }
         await page.keyboard.up('Shift');
-        await page.keyboard.press('Backspace')
-        await page.keyboard.type(' walk into mortor')
+        await page.keyboard.press('Backspace');
+        await page.keyboard.type(' walk into mortor');
     }
     catch(err){
-        console.error("Something went wrong")
-        console.error(err)
+        console.error("Something went wrong");
+        console.error(err);
     }
     await browser.close();
 })();

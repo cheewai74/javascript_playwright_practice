@@ -22,8 +22,8 @@ const {chromium} = require('playwright');
         console.log(await submitBtn.isVisible());
     }
     catch(err){
-        console.error("Something went wrong")
-        console.error(err)
+        console.error("Something went wrong");
+        console.error(err);
     }
 
     await browser.close();

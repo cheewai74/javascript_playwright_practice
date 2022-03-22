@@ -17,8 +17,8 @@ const {chromium} = require('playwright');
         // await radios[1].check();
     }
     catch (err) {
-        console.error("Something went wrong")
-        console.error(err)
+        console.error("Something went wrong");
+        console.error(err);
     }
     await browser.close();
 })();

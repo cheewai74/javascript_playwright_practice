@@ -15,8 +15,8 @@ const {chromium} = require('playwright');
     try {
         await page.click('#confirmButton');
     } catch (err) {
-        console.error("Something went wrong")
-        console.error(err)
+        console.error("Something went wrong");
+        console.error(err);
     }
        
     page.once('dialog', async dialog =>{
@@ -25,10 +25,10 @@ const {chromium} = require('playwright');
     })
 
     try {
-        await page.click('#promtButton')
+        await page.click('#promtButton');
     } catch (err) {
-        console.error("Something went wrong")
-        console.error(err)
+        console.error("Something went wrong");
+        console.error(err);
     }
 
     await browser.close();
