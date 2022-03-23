@@ -4,3 +4,6 @@ https://juarezjunior.medium.com/quick-and-easy-javascript-testing-with-playwrigh
 
 
 https://nitya.github.io/learn-playwright/001-getting-started-setup/
+
+https://github.com/ixmeza/playwright_tau
+(Note: Chpt 13 folder name POM (Page Object Model not to confused with Maven POM))

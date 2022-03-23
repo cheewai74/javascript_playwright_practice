@@ -21,5 +21,9 @@ https://demoqa.com/automation-practice-form
 https://paint.js.org/
 https://jestjs.io
 
+playwright Inspector
+<< npx playwright codegen url >>
+npx playwright codegen https://www.saucedemo.com
+
 chropath
 https://chrome.google.com/webstore/detail/chropath/ljngjbnaijcbncmcnjfhigebomdlkcjo
