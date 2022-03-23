@@ -1,0 +1,11 @@
+Cheat Sheet:
+
+JEST:
+https://devhints.io/jest
+https://github.com/sapegin/jest-cheat-sheet
+
+Javascript:
+https://hackr.io/blog/javascript-cheat-sheet
+
+
+
